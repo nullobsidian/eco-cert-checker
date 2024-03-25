@@ -19,7 +19,7 @@ resource "aws_instance" "ssl_instance" {
                 apt-get install -y git docker.io
                 systemctl start docker
                 systemctl enable docker
-                curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+                curl -L "https://github.com/docker/compose/releases/download/2.24.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
                 chmod +x /usr/local/bin/docker-compose
 
                 # Fetch SSH key AWS Secrets Manager and store temporarily
