@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        SLACK_WEBOOK_URL: 'https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX'
+        STATSD_SERVER: '10.10.4.14'
+        STATSD_PORT: 8125
+        CONCURRENT_LIMIT: 5
+        EXPIRE_THRESHOLD_DAYS: 30
+        RECENT_THRESHOLD_DAYS: 90
+        TIMEOUT: 5
+        CRON_SCHEDULE: '0 5 * * 2' #E.g. 5 AM every Tuesday
+        IP_FILE_PATH: "./takehome_ip_addresses.txt"
+        # CA_FILE_PATH: "path/to/cafile" (optional) 
+    restart: always
