@@ -1,10 +1,10 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    cron=3.0pl1-128.1ubuntu1 \
-    openssl=1.1.1-1ubuntu2.1~18.04.6 \
+    cron=3.0pl1-128.1ubuntu1.2 \
+    openssl=1.1.1-1ubuntu2.1~18.04.23 \
     python3=3.6.7-1~18.04 \
-    python3-pip=9.0.1-2.3~ubuntu1.18.04.4 \
+    python3-pip=9.0.1-2.3~ubuntu1.18.04.8 \
  && rm -rf /var/lib/apt/lists/*
 
 COPY main.py /usr/src/app/main.py
