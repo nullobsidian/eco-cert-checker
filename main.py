@@ -3,7 +3,6 @@ import re
 import asyncio
 import datetime
 import ipaddress
-import subprocess
 from subprocess import PIPE
 from aiohttp import ClientSession
 from aio_statsd import StatsdClient

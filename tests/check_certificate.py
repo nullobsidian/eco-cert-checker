@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def check_certificate(ip, port):
+    date_format = "%b %d %H:%M:%S %Y %Z"
     cmd = f"openssl s_client -connect {ip}:{port} -servername {ip}"
     not_after_regex = re.compile(
         r"NotAfter:\s*(\w{3} \d{2} \d{2}:\d{2}:\d{2} \d{4} GMT)"
