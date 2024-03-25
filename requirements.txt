@@ -1,0 +1,3 @@
+aiohttp==3.9.3
+aio-statsd==0.2.8
+aiologger==0.7.0
