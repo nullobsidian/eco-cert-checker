@@ -27,11 +27,11 @@ SLACK_WEBHOOK_URL = os.getenv(
 STATSD_SERVER = os.getenv("STATSD_SERVER", "10.10.4.14")
 STATSD_PORT = int(os.getenv("STATSD_PORT", "8125"))
 CONCURRENT_LIMIT = int(os.getenv("CONCURRENT_LIMIT", "5"))
-EXPIRE_THRESHOLD_DAYS = 30
-RECENT_THRESHOLD_DAYS = 90
+EXPIRE_THRESHOLD_DAYS = int(os.getenv("EXPIRE_THRESHOLD_DAYS", "30"))
+RECENT_THRESHOLD_DAYS = int(os.getenv("RECENT_THRESHOLD_DAYS", "90"))
 TIMEOUT = int(os.getenv("TIMEOUT", "5"))
 
-IP_FILE_PATH = os.getenv("IP_FILE_PATH", "takehome_ip_addresses.txt")
+IP_FILE_PATH = os.getenv("IP_FILE_PATH", "./takehome_ip_addresses.txt")
 CA_FILE_PATH = os.getenv("CA_FILE_PATH", None)
 
 # Service Config
