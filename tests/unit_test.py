@@ -1,13 +1,42 @@
-import unittest
-from unittest.mock import patch, MagicMock
-from check_certificate import check_certificate
-from datetime import datetime, timedelta
+"""
+Unit test for the `check_certificate` function.
 
+This module contains unit tests for testing the functionality of the `check_certificate` function
+from the `check_certificate` module. It verifies the correct identification and categorization of
+SSL/TLS certificates based on their expiration and issue dates by simulating the output of the
+OpenSSL command used within the `check_certificate` function.
+"""
+
+import unittest
+from datetime import datetime, timedelta
+from unittest.mock import MagicMock, patch
+
+from check_certificate import check_certificate
 
 class TestCheckCertificate(unittest.TestCase):
+    """
+    This test class is designed to unit test the functionality of the `check_certificate` function.
+    """
 
     @patch("check_certificate.subprocess.run")
     def test_check_run(self, mock_run):
+        """
+        Tests the `check_certificate` function to ensure it correctly identifies a valid SSL 
+        certificate.
+
+        This test simulates the subprocess output of the openssl command, representing a certificate 
+        that is currently valid (not expired and issued more than RECENT_THRESHOLD_DAYS ago). It 
+        then checks that the function's return value matches the expected result for a valid 
+        certificate.
+
+        Args:
+            mock_run (MagicMock): A mock of the `subprocess.run` function, allowing the simulation
+                                  of subprocess output without executing the actual command.
+
+        Asserts:
+            Asserts that the result from `check_certificate` matches the expected dictionary 
+            indicating a valid certificate status for the given IP and port.
+        """
         future_date = datetime.now() + timedelta(days=365)  # Issued
         past_date = datetime.now() - timedelta(days=120)  # Recent Issued
         formatted_not_after = future_date.strftime("NotAfter: %b %d %H:%M:%S %Y GMT\n")

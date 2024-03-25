@@ -73,6 +73,7 @@ async def check_certificate(ip, semaphore):
 
     Args:
         ip (str): The IP address to check the certificate for.
+        port (int): The port number on which the server is listening for secure connections.
         semaphore (asyncio.Semaphore): Semaphore object to control the concurrency of certificate
         checks.
 
