@@ -30,14 +30,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip=9.0.1-2.3~ubuntu1.18.04.8 \
  && rm -rf /var/lib/apt/lists/*
 
-COPY main.py /usr/src/app/main.py
-COPY requirements.txt /usr/src/app/requirements.txt
-COPY takehome_ip_addresses.txt /usr/src/app/takehome_ip_addresses.txt
+WORKDIR /usr/src/app
+
+COPY main.py ./main.py
+COPY requirements.txt ./requirements.txt
+COPY takehome_ip_addresses.txt ./takehome_ip_addresses.txt
 
 RUN chmod +x /usr/src/app/main.py \
- && pip3 install --no-cache-dir -r /usr/src/app/requirements.txt
+ && pip3 install --no-cache-dir -r ./requirements.txt
 
-RUN echo "${CRON_SCHEDULE} python3 /usr/src/app/main.py" > /etc/cron.d/certificate_check \
+RUN echo "${CRON_SCHEDULE} python3 ./main.py" > /etc/cron.d/certificate_check \
  && chmod 0644 /etc/cron.d/certificate_check \
  && crontab /etc/cron.d/certificate_check \
  && touch /var/log/cron.log
