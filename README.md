@@ -3,7 +3,7 @@
 
 ## Overview
 
-Eco-Cert-Checker is a versatile tool designed to bolster network security by facilitating the asynchronous verification of SSL/TLS certificates for a list of IP addresses. This capability is crucial for maintaining the security and reliability of SSL/TLS certificates, essential components of secure network communications.
+Eco-Cert-Checker is a versatile tool designed to bolster network security by facilitating the asynchronous verification of SSL/TLS certificates for a list of IP addresses, sends notifications and sends updates to metric server. This capability is crucial for maintaining the security and reliability of SSL/TLS certificates, essential components of secure network communications.
 
 Tthis script serves as a core component of the eco-cert-checker suite, offering efficient and concurrent checks of SSL/TLS certificate validity. Utilizing the asyncio library, it manages asynchronous operations effectively, with the check_certificate function at its heart, ensuring thorough and reliable verification processes.
 
@@ -34,9 +34,9 @@ Designed with flexibility in mind, the tool's deployment is compatible with AWS 
 ```
 
 ### Key Components
-- `main.py`: The core script of the project, it utilizes asynchronous programming to check SSL/TLS certificates for a predefined list of IP addresses. It includes functionality for logging, notifying Slack channels, and updating StatsD gauges based on the certificate status .
-- `Dockerfile` and `compose.yaml`: These files are used for containerizing the application, allowing it to be run in isolated environments. The Dockerfile defines the steps for building the project's Docker image, while compose.yaml specifies how to run the service as part of a multi-container Docker application.
-- `tests/` directory: Contains `unit_test.py` and `check_certificate.py`. unit_test.py includes unit tests to verify the functionality of the SSL/TLS certificate checking process, ensuring it correctly identifies certificate validity and expiration . check_certificate.py contains the logic for checking the certificate status of a given IP address by making a synchronous OpenSSL connection .
+- `main.py`: The core script of the project, it utilizes asynchronous programming to check SSL/TLS certificates for a predefined list of IP addresses. It includes functionality for logging, notifying Slack channels, and updating StatsD gauges based on the certificate status.
+- `Dockerfile` and `compose.yaml`: These files are used for containerizing the application, allowing it to be run in isolated environments. The Dockerfile defines the steps for building the project's Docker image, while using orchestration `compose.yaml` to deploy into any environment.
+- `tests/` directory: Contains `unit_test.py` and `check_certificate.py`. `unit_test.py` includes unit tests to verify the functionality of the SSL/TLS certificate checking process, ensuring it correctly identifies certificate validity and expiration. `check_certificate.py` contains the logic for checking the certificate status of a given IP address by making a synchronous OpenSSL connection.
 - `terraform/` directory: Contains `main.tf` and `variables.tf` are part of the infrastructure as code (IaC) setup using Terraform. These files define the cloud resources required for the project.
 - `takehome_ip_addresses.txt`: This text file contains a list of IP addresses. The main.py script reads from this file to determine which IP addresses to check for SSL/TLS certificate validity​​.
 
@@ -49,7 +49,7 @@ To get started with the Eco-Cert-Checker, ensure Docker and Docker Compose are i
 4. Run the application using `docker-compose up`.
 
 ## Dependencies
-The project's dependencies are listed in the requirements.txt file. They will be automatically installed when building the Docker container.
+The project's dependencies are listed in the `requirements.txt` file. They will be automatically installed when building the Docker container.
 
 For local development, you can install the dependencies using:
 
@@ -57,7 +57,6 @@ For local development, you can install the dependencies using:
 pip install -r requirements.txt
 ```
 ## Environment Variables
-
 
 ### Dockerfile and Docker Compose
 
