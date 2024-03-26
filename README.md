@@ -5,7 +5,7 @@
 
 Eco-Cert-Checker is a versatile tool designed to bolster network security by facilitating the asynchronous verification of SSL/TLS certificates for a list of IP addresses, sends notifications and sends updates to metric server. This capability is crucial for maintaining the security and reliability of SSL/TLS certificates, essential components of secure network communications.
 
-Tthis script serves as a core component of the eco-cert-checker suite, offering efficient and concurrent checks of SSL/TLS certificate validity. Utilizing the asyncio library, it manages asynchronous operations effectively, with the check_certificate function at its heart, ensuring thorough and reliable verification processes.
+This script serves as a core component of the eco-cert-checker suite, offering efficient and concurrent checks of SSL/TLS certificate validity. Utilizing the asyncio library, it manages asynchronous operations effectively, with the check_certificate function at its heart, ensuring thorough and reliable verification processes.
 
 Deployment through an automated cron job, allowing for regular, scheduled certificate checks without the need for manual oversight. This continuous monitoring and validation mechanism significantly enhances network security protocols.
 
